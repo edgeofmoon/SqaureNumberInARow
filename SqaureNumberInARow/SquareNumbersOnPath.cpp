@@ -1,6 +1,7 @@
 #include "SquareNumbersOnPath.h"
 #include <iostream>
 #include <string>
+#include <cmath>
 using namespace std;
 
 string SquareNumbersOnPath::emptyAnswerStr = "No answer can be found.";
@@ -27,7 +28,7 @@ void SquareNumbersOnPath::printPath(vector<int>& path){
 	cout << endl;
 }
 
-long long SquareNumbersOnPath::exaustiveSearch(vector<vector<int>>& graph, int start, int size,
+long long SquareNumbersOnPath::exaustiveSearch(vector< vector<int> >& graph, int start, int size,
 	vector<int>& path, vector<bool>& visited){
 	if (path.size() == size){
 		printPath(path);
@@ -51,7 +52,7 @@ void SquareNumbersOnPath::SolveAndPrint(int start, int end){
 	// build the neighbors graph
 	// vector is more efficient than unordered_map if key is contineous
 	int size = end - start + 1;
-	vector<vector<int>> graph(size);
+	vector< vector<int> > graph(size);
 	for (int i = start; i < end; i++){
 		for (int j = i + 1; j <= end; j++){
 			if (isPerfectSquareNumber(i + j)){

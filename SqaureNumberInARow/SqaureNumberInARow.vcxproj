@@ -83,7 +83,7 @@
     <ClInclude Include="SquareNumbersOnPath.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Readme.txt" />
+    <None Include="makefile" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -28,6 +28,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Readme.txt" />
+    <None Include="makefile" />
   </ItemGroup>
 </Project>
