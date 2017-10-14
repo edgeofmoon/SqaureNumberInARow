@@ -27,6 +27,7 @@ private:
 	// @size is the total number the final numbers @path should contain
 	// @path is the visited path from previous steps
 	// @visited tells for index i, if i+@start has been visited before
+	// return the count of total answers
 	long long exaustiveSearch(std::vector< std::vector<int> >& graph, int start, int size,
 		std::vector<int>& path, std::vector<bool>& visited);
 
