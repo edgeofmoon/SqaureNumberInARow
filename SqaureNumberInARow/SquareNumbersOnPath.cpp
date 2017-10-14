@@ -17,12 +17,13 @@ SquareNumbersOnPath::~SquareNumbersOnPath()
 
 
 bool SquareNumbersOnPath::isPerfectSquareNumber(int num){
-	int t = sqrt(num);
+	if (num < 0) return false;
+	int t = (int)round(sqrt(num));
 	return t*t == num;
 }
 
 void SquareNumbersOnPath::printPath(vector<int>& path){
-	for (int i = 0; i < path.size(); i++){
+	for (size_t i = 0; i < path.size(); i++){
 		cout << path[i] << " ";
 	}
 	cout << endl;
@@ -36,7 +37,7 @@ long long SquareNumbersOnPath::exaustiveSearch(vector< vector<int> >& graph, int
 	}
 	long long answer_count = 0;
 	vector<int>& neighbors = graph[path.back() - start];
-	for (int i = 0; i < neighbors.size(); i++){
+	for (size_t i = 0; i < neighbors.size(); i++){
 		if (!visited[neighbors[i] - start]){
 			path.push_back(neighbors[i]);
 			visited[neighbors[i] - start] = true;
@@ -65,7 +66,7 @@ void SquareNumbersOnPath::SolveAndPrint(int start, int end){
 
 	// fast reject if more than 2 numbers have less than 2 neighbors
 	int _num_numbers_with_few_neighbors = 0;
-	for (int i = 0; i < graph[i].size(); i++){
+	for (size_t i = 0; i < graph[i].size(); i++){
 		if (graph[i].size() < 2){
 			_num_numbers_with_few_neighbors++;
 			if (_num_numbers_with_few_neighbors > 2){
