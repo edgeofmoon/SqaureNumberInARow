@@ -50,8 +50,8 @@ long long SquareNumbersOnPath::exaustiveSearch(vector< vector<int> >& graph, int
 }
 
 void SquareNumbersOnPath::SolveAndPrint(int start, int end){
-	// build the neighbors graph
-	// vector is more efficient than unordered_map if key is contineous
+	// build the neighbor graph
+	// vector is more efficient than unordered_map if key is continuous
 	int size = end - start + 1;
 	vector< vector<int> > graph(size);
 	for (int i = start; i < end; i++){
@@ -65,6 +65,7 @@ void SquareNumbersOnPath::SolveAndPrint(int start, int end){
 	}
 
 	// fast reject if more than 2 numbers have less than 2 neighbors
+	// because they have to be put at one of the two ends
 	int _num_numbers_with_few_neighbors = 0;
 	for (size_t i = 0; i < graph[i].size(); i++){
 		if (graph[i].size() < 2){
@@ -80,7 +81,7 @@ void SquareNumbersOnPath::SolveAndPrint(int start, int end){
 	// find all hamiltonian path, which is a NP-complete probelm!
 	// source: https://en.wikipedia.org/wiki/Hamiltonian_path_problem
 	long long answer_count = 0;
-	// vector is more efficient than unordered_set if key is contineous
+	// vector is more efficient than unordered_set if key is continuous
 	vector<bool> visited(size, false);
 	vector<int> path;
 	for (int i = start; i <= end; i++){
