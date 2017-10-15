@@ -22,8 +22,17 @@ int main(int argc, char* argv[]){
 	else{
 		int start = atoi(argv[1]);
 		int end = atoi(argv[2]);
+		if (start < 0) {
+			cout << "Numbers must be positive!" << endl;
+			return 0;
+		}
+		if (start >= end){
+			cout << "Range must be positive!" << endl;
+			return 0;
+		}
 		SquareNumbersOnPath sol;
 		cout << "Solve for " << start << " to " << end << endl;
 		sol.SolveAndPrint(start, end);
 	}
+	return 1;
 }
